@@ -4,6 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Trophy } from "lucide-react";
 import { useState } from "react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -91,6 +92,10 @@ const Navbar = () => {
               Join Now
             </button>
           </Link>
+
+         
+
+        
         </motion.div>
 
         {/* Mobile Menu Button */}

@@ -1,5 +1,7 @@
 "use client";
 
+
+import { authClient } from "@/lib/auth-client";
 import { Check, Sparkles } from "@gravity-ui/icons";
 import {
   Button,
@@ -14,7 +16,31 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 
+
 const RegisterPage = () => {
+
+    const onSubMit = async (e) => {
+      e.preventDefault();
+  
+      const formdata = new FormData(e.currentTarget);
+      const newdata = Object.fromEntries(formdata.entries());
+
+      // console.log('new data', newdata);
+
+
+      const {data, error} = await authClient.signUp.email({
+        name : newdata.name,
+        Email : newdata.email,
+        Password : newdata.password,
+      })
+
+      console.log(data, error);
+      
+
+
+    
+    
+    };
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050b18] px-4 py-10">
 
@@ -74,8 +100,8 @@ const RegisterPage = () => {
 
         {/* Form */}
         <Form
+          onSubmit={onSubMit}
           className="relative z-10 flex flex-col gap-7"
-          onSubmit={() => {}}
         >
 
           {/* Name */}
