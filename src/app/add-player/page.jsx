@@ -1,6 +1,36 @@
+'use client'
 import { Button, Card, FieldError, Input, Label, ListBox, TextArea, TextField, Select } from "@heroui/react";
+import { redirect } from "next/navigation";
 
 const AddPlayers = () => {
+
+
+    const onSubMit = async(e) => {
+        e.preventDefault();
+
+        const formdata = new FormData(e.currentTarget);
+        const newdata = Object.fromEntries(formdata.entries());
+
+        const res = await fetch('http://localhost:5000/sports',{
+            method : "POST",
+            headers : {
+                "Content-Type" : "Application/json"
+            },
+            body : JSON.stringify(newdata)
+        })
+
+
+        const newData = await res.json();
+        // console.log(newData);
+
+        if(newData){
+            alert('Player add suceessfull')
+            redirect('/sports')
+        }
+
+        // console.log('new data', newdata);
+        
+    }
   return (
     <div className="w-[40%] mx-auto">
 
@@ -8,7 +38,7 @@ const AddPlayers = () => {
             <h2 className="text-4xl font-bold text-black my-6">Add Player</h2>
         </div>
       <Card>
-        <form className="p-10 space-y-8">
+        <form onSubmit={onSubMit} className="p-10 space-y-8">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Destination Name */}
             <div className="md:col-span-2">
