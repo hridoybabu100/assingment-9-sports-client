@@ -9,6 +9,7 @@ import {
   ListBox,
   TextField,
   Select,
+  TextArea,
 } from "@heroui/react";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
@@ -71,7 +72,7 @@ const AddPlayers = () => {
 
               {/* Team */}
               <Select name="team" isRequired className="w-full">
-                <Label className="text-gray-300 font-medium">Team</Label>
+                <Label className="text-gray-300 font-medium">League Name</Label>
 
                 <Select.Trigger className="rounded-2xl bg-white/5 border border-white/10 text-white">
                   <Select.Value />
@@ -80,17 +81,26 @@ const AddPlayers = () => {
 
                 <Select.Popover>
                   <ListBox>
-                    <ListBox.Item id="RCB" textValue="RCB">
-                      Royal Challengers Bengaluru
+                    <ListBox.Item id="Indian Premier League (IPL)" textValue="Indian Premier League (IPL)">
+                      Indian Premier League (IPL)
                     </ListBox.Item>
-                    <ListBox.Item id="BD" textValue="Bangladesh">
-                      Bangladesh National Team
+                    <ListBox.Item id="Bangladesh Premier League (BPL)" textValue="Bangladesh Premier League (BPL)">
+                      Bangladesh Premier League (BPL)
                     </ListBox.Item>
-                    <ListBox.Item id="Lakers" textValue="Lakers">
-                      Los Angeles Lakers
+                    <ListBox.Item id="International League T20 (ILT20)" textValue="International League T20 (ILT20)">
+                      International League T20 (ILT20)
                     </ListBox.Item>
-                    <ListBox.Item id="InterMiami" textValue="Inter Miami">
-                      Inter Miami
+                    <ListBox.Item id="The Hundred" textValue="The Hundred">
+                      The Hundred
+                    </ListBox.Item>
+                    <ListBox.Item id="The Major League Soccer (MLS)" textValue="Major League Soccer (MLS)">
+                      Major League Soccer (MLS)
+                    </ListBox.Item>
+                    <ListBox.Item id="The La Liga" textValue="La Liga">
+                      La Liga
+                    </ListBox.Item>
+                    <ListBox.Item id="Brazilian Série A" textValue="Brazilian Série A">
+                      Brazilian Série A
                     </ListBox.Item>
                   </ListBox>
                 </Select.Popover>
@@ -107,10 +117,13 @@ const AddPlayers = () => {
 
                 <Select.Popover>
                   <ListBox>
-                    <ListBox.Item id="BD" textValue="Bangladesh">Bangladesh</ListBox.Item>
-                    <ListBox.Item id="IN" textValue="India">India</ListBox.Item>
-                    <ListBox.Item id="AU" textValue="Australia">Australia</ListBox.Item>
-                    <ListBox.Item id="UK" textValue="England">England</ListBox.Item>
+                    <ListBox.Item id="Bangladesh" textValue="Bangladesh">Bangladesh</ListBox.Item>
+                    <ListBox.Item id="India" textValue="India">India</ListBox.Item>
+                    <ListBox.Item id="Australia" textValue="Australia">Australia</ListBox.Item>
+                    <ListBox.Item id="EngLand" textValue="England">England</ListBox.Item>
+                    <ListBox.Item id="Brazil" textValue="Brazil">Brazil</ListBox.Item>
+                    <ListBox.Item id="Arjentina" textValue="Arjentina">Arjentina</ListBox.Item>
+                    <ListBox.Item id="France" textValue="France">France</ListBox.Item>
                   </ListBox>
                 </Select.Popover>
               </Select>
@@ -136,6 +149,29 @@ const AddPlayers = () => {
                   <Input
                     type="url"
                     placeholder="https://image-link.com/player.jpg"
+                    className="rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
+                  />
+                  <FieldError />
+                </TextField>
+              </div>
+
+                 {/* Sports */}
+              <TextField name="salary" isRequired>
+                <Label className="text-gray-300 font-medium">
+                  Salary
+                </Label>
+                <Input
+                  placeholder="150000"
+                  className="rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
+                />
+                <FieldError />
+              </TextField>
+               {/* Description */}
+              <div className="md:col-span-2">
+                <TextField name="description" isRequired>
+                  <Label>Description</Label>
+                  <TextArea
+                    placeholder="Describe the player..."
                     className="rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
                   />
                   <FieldError />

@@ -1,4 +1,8 @@
+
+import { DeleteButton } from "@/components/DeleteButton/DeleteButton";
+import { EditModal } from "@/components/EditModal/EditModal";
 import Image from "next/image";
+import Link from "next/link";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
 
 const SportsDetailsPage = async ({ params }) => {
@@ -8,8 +12,7 @@ const SportsDetailsPage = async ({ params }) => {
 
   const data = await res.json();
 
-  console.log('New data', data);
-  
+  // console.log('New data', data);
 
   return (
     <div className="min-h-screen bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] px-4 py-8 sm:px-6 lg:px-8">
@@ -83,9 +86,11 @@ const SportsDetailsPage = async ({ params }) => {
             {/* Buttons */}
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {/* Go Back */}
-              <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
-                Go Back
+           <Link href={'/'}>
+              <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30 w-full h-full">
+                Go Back 
               </button>
+           </Link>
 
               {/* View Profile */}
               <button className="rounded-2xl border border-cyan-500 bg-white px-6 py-4 font-semibold text-cyan-600 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-50 hover:shadow-lg">
@@ -93,16 +98,10 @@ const SportsDetailsPage = async ({ params }) => {
               </button>
 
               {/* Edit Button */}
-              <button className="flex items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-emerald-500 to-green-600 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-green-500/30">
-                <FiEdit className="text-lg" />
-                Edit
-              </button>
+              <EditModal data={data}></EditModal>
 
               {/* Delete Button */}
-              <button className="flex items-center justify-center gap-2 rounded-2xl bg-linear-to-r from-red-500 to-rose-600 px-6 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-red-500/30">
-                <FiTrash2 className="text-lg" />
-                Delete
-              </button>
+              <DeleteButton data={data}></DeleteButton>
             </div>
           </div>
         </div>

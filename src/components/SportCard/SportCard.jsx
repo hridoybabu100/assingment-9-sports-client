@@ -5,7 +5,7 @@ export default function SportsCard({ spot }) {
   const { name, _id, country, sports, image, team } = spot;
 
   return (
-    <div className="w-full font-sans">
+    <div className="w-full font-sans bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33]">
       
       <div className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-[#0b1220] shadow-2xl transition-all duration-500 hover:-translate-y-2 hover:shadow-cyan-500/30">
 
