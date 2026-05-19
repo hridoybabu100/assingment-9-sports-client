@@ -8,8 +8,9 @@ const SportsPage = async() => {
     // console.log("all Sports", sport);
     
     return (
-        <div className="max-w-[80%] mx-auto">
-           <h1 className="text-4xl font-bold py-8 text-black">All- Palyers </h1>
+      <div className=" bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33]">
+          <div className="max-w-[80%] mx-auto">
+           <h1 className="text-4xl font-bold py-8 text-white">All- Palyers </h1>
            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
                  {
             sports.map((spot) => <SportsCard key={spot._id} spot={spot}></SportsCard>)
@@ -17,6 +18,7 @@ const SportsPage = async() => {
            </div>
           
         </div>
+      </div>
     );
 };
 

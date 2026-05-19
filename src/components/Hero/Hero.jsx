@@ -1,109 +1,115 @@
 "use client";
-import { Button } from "@heroui/react";
-import { ArrowRight, Star, Play } from "lucide-react";
+
 import Image from "next/image";
+import { motion } from "framer-motion";
+import { FaPlay, FaTrophy } from "react-icons/fa";
 
 const Hero = () => {
+  return (
+    <section className="relative overflow-hidden bg-[#07111f] text-white">
+      
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl"></div>
+      <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-purple-500/20 blur-3xl"></div>
 
-    return (
-        <section className="relative overflow-hidden pt-12 pb-24 md:pt-24 md:pb-32  from-blue-50 via-slate-50 to-slate-50">
+      <div className="relative z-10 mx-auto flex min-h-screen max-w-7xl flex-col items-center justify-between gap-12 px-6 py-20 lg:flex-row lg:px-12">
+        
+        {/* Left Content */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="max-w-2xl"
+        >
+          {/* Badge */}
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-cyan-400/30 bg-cyan-400/10 px-5 py-2 text-sm font-medium text-cyan-300 backdrop-blur-xl">
+            <FaTrophy />
+            World Sports Community
+          </div>
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div className="space-y-8">
-                        <div className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600/10 rounded-full border border-blue-600/20 text-blue-600 font-bold text-sm animate-bounce-slow">
-                            <Star className="w-4 h-4 fill-blue-600" />
-                            <span>Trusted by 10,000+ Students Worldwide</span>
-                        </div>
-                        <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-slate-900 leading-[1.1]">
-                            Master New Skills with{' '}
-                            <span className="bg-clip-text text-transparent bg-linear-to-r from-blue-600 to-blue-800">
-                                Expert-Led
-                            </span>{' '}
-                            Courses
-                        </h1>
-                        <p className="text-xl text-slate-500 leading-relaxed max-w-xl">
-                            Unlock your potential with over 1,000+ high-quality courses taught by industry professionals. Start your
-                            learning journey today.
-                        </p>
-                        <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                            <Button
-                                href="/courses"
-                                color="primary"
-                                size="lg"
-                                className="h-14 px-10 text-lg font-bold rounded-full shadow-2xl shadow-blue-600/30 group"
-                            >
-                                Explore Courses <ArrowRight className="ml-2 group-hover:translate-x-1 transition-transform" />
-                            </Button>
-                            <Button
-                                variant="bordered"
-                                size="lg"
-                                className="h-14 px-8 text-lg font-bold rounded-full group"
-                            >
-                                <Play className="mr-2 fill-slate-900 group-hover:scale-110 transition-transform" /> Watch Demo
-                            </Button>
-                        </div>
-                        <div className="flex items-center gap-6 pt-6 grayscale opacity-60">
-                            <Image
-                                src="https://upload.wikimedia.org/wikipedia/commons/a/ab/Logo_TV_2015.png"
-                                alt="Google"
-                                width={60}
-                                height={24}
-                                className="h-6 w-auto"
-                            />
-                            <Image
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/01/LinkedIn_Logo.svg/1280px-LinkedIn_Logo.svg.png"
-                                alt="LinkedIn"
-                                width={100}
-                                height={24}
-                                className="h-6 w-auto"
-                            />
-                            <Image
-                                src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Logo_of_YouTube_%282015-2017%29.svg/1280px-Logo_of_YouTube_%282015-2017%29.svg.png"
-                                alt="YouTube"
-                                width={100}
-                                height={24}
-                                className="h-6 w-auto"
-                            />
-                        </div>
-                    </div>
+          {/* Heading */}
+          <h1 className="mb-6 text-5xl font-black leading-tight sm:text-6xl lg:text-7xl">
+            Feel The Power <br />
+            Of <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              Sports
+            </span>
+          </h1>
 
-                    <div className="relative group">
-                        <div className="absolute -inset-1 bg-linear-to-r from-primary to-blue-600 rounded-[2.5rem] blur opacity-25 group-hover:opacity-40 transition duration-1000"></div>
-                        <div className="relative bg-white p-2 rounded-[2.5rem] shadow-2xl overflow-hidden aspect-video lg:aspect-square">
-                            <Image
-                                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop"
-                                alt="Learning"
-                                fill
-                                className="rounded-[2rem] object-cover transform transition duration-700 group-hover:scale-105"
-                            />
-                            <div className="absolute bottom-8 left-8 right-8 bg-white/70 backdrop-blur-md p-6 rounded-2xl border border-white/30 shadow-2xl">
-                                <div className="flex items-center gap-4">
-                                    <div className="flex -space-x-3">
-                                        {[1, 2, 3, 4].map((i) => (
-                                            <Image
-                                                key={i}
-                                                src={`https://i.pravatar.cc/100?img=${i + 10}`}
-                                                width={40}
-                                                height={40}
-                                                className="w-10 h-10 rounded-full border-2 border-white shadow-md"
-                                                alt="avatar"
-                                            />
-                                        ))}
-                                    </div>
-                                    <div>
-                                        <p className="font-bold text-sm">Join the community</p>
-                                        <p className="text-xs text-slate-500">500+ new enrollments today</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+          {/* Description */}
+          <p className="mb-8 max-w-xl text-lg leading-8 text-gray-300">
+            Discover legendary players, iconic teams, and unforgettable
+            moments from the world of sports. Experience the energy,
+            passion, and greatness like never before.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-col gap-4 sm:flex-row">
+            
+            <button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/40">
+              Explore Players
+            </button>
+
+            <button className="flex items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/10 px-8 py-4 text-lg font-semibold backdrop-blur-xl transition-all duration-300 hover:bg-white/20">
+              <FaPlay />
+              Watch Highlights
+            </button>
+          </div>
+
+          {/* Stats */}
+          <div className="mt-12 grid grid-cols-3 gap-6">
+            <div>
+              <h2 className="text-3xl font-bold text-cyan-400">500+</h2>
+              <p className="text-gray-400">Players</p>
             </div>
 
-        </section>
-    );
+            <div>
+              <h2 className="text-3xl font-bold text-cyan-400">120+</h2>
+              <p className="text-gray-400">Teams</p>
+            </div>
+
+            <div>
+              <h2 className="text-3xl font-bold text-cyan-400">50+</h2>
+              <p className="text-gray-400">Countries</p>
+            </div>
+          </div>
+        </motion.div>
+
+        {/* Right Image */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="relative"
+        >
+          {/* Main Image */}
+          <div className="relative">
+            <Image
+              src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop"
+              width={600}
+              height={600}
+              alt="sports"
+              className="rounded-[40px] object-cover shadow-2xl"
+            />
+
+            {/* Floating Card */}
+            <div className="absolute -bottom-8 left-1/2 flex w-[260px] -translate-x-1/2 items-center gap-4 rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur-xl">
+              
+              <div className="rounded-2xl bg-cyan-500 p-4">
+                <FaTrophy className="text-2xl text-white" />
+              </div>
+
+              <div>
+                <h3 className="text-lg font-bold">Championship</h3>
+                <p className="text-sm text-gray-300">
+                  Experience the ultimate sports thrill
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
 };
 
 export default Hero;
