@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function SportsCard({ spot }) {
+export default function SportsCard({ spot, player }) {
   const { name, _id, country, sports, image, team } = spot;
 
   return (

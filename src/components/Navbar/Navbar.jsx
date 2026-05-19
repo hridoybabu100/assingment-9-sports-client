@@ -14,17 +14,16 @@ const Navbar = () => {
     { name: "All-Players", path: "/teams" },
     { name: "Add-Players", path: "/add-player" },
     { name: "Profile", path: "/profile" },
+    // { name: "Join Now", path: "/register" },
   ];
 
   return (
     <header className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#07111f]/70 backdrop-blur-2xl">
-      
       {/* Glow */}
       <div className="absolute left-0 top-0 h-32 w-32 rounded-full bg-cyan-500/20 blur-3xl"></div>
       <div className="absolute right-0 top-0 h-32 w-32 rounded-full bg-blue-500/20 blur-3xl"></div>
 
       <div className="relative mx-auto flex h-20 max-w-7xl items-center justify-between px-6 lg:px-10">
-        
         {/* Logo */}
         <motion.div
           initial={{ opacity: 0, x: -40 }}
@@ -32,7 +31,6 @@ const Navbar = () => {
           transition={{ duration: 0.7 }}
         >
           <Link href="/" className="flex items-center gap-3">
-            
             <div className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 p-3 shadow-lg shadow-cyan-500/30">
               <Trophy className="h-6 w-6 text-white" />
             </div>
@@ -82,13 +80,17 @@ const Navbar = () => {
           transition={{ duration: 0.7 }}
           className="hidden items-center gap-4 lg:flex"
         >
-          <button className="rounded-2xl border border-cyan-500/30 bg-white/5 px-5 py-2.5 text-sm font-medium text-cyan-400 backdrop-blur-xl transition-all duration-300 hover:bg-cyan-500/10 hover:shadow-lg hover:shadow-cyan-500/20">
-            Login
-          </button>
+          <Link href={"/login"}>
+            <button className="rounded-2xl border border-cyan-500/30 bg-white/5 px-5 py-3 font-medium text-cyan-400 backdrop-blur-xl transition-all duration-300 hover:bg-cyan-500/10">
+              Login
+            </button>
+          </Link>
 
-          <button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
-            Join Now
-          </button>
+          <Link href={"/register"}>
+            <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30">
+              Join Now
+            </button>
+          </Link>
         </motion.div>
 
         {/* Mobile Menu Button */}
@@ -111,7 +113,6 @@ const Navbar = () => {
         className="overflow-hidden border-t border-white/10 bg-[#07111f]/95 backdrop-blur-2xl lg:hidden"
       >
         <div className="flex flex-col gap-6 px-6 py-8">
-          
           {navLinks.map((link, index) => (
             <motion.div
               key={index}
@@ -134,14 +135,17 @@ const Navbar = () => {
 
           {/* Mobile Buttons */}
           <div className="flex flex-col gap-4 pt-4">
-            
-            <button className="rounded-2xl border border-cyan-500/30 bg-white/5 px-5 py-3 font-medium text-cyan-400 backdrop-blur-xl transition-all duration-300 hover:bg-cyan-500/10">
-              Login
-            </button>
+            <Link href={"/login"}>
+              <button className="rounded-2xl border border-cyan-500/30 bg-white/5 px-5 py-3 font-medium text-cyan-400 backdrop-blur-xl transition-all duration-300 hover:bg-cyan-500/10">
+                Login
+              </button>
+            </Link>
 
-            <button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30">
-              Join Now
-            </button>
+            <Link href={"/register"}>
+              <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30">
+                Join Now
+              </button>
+            </Link>
           </div>
         </div>
       </motion.div>
