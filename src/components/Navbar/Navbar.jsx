@@ -47,29 +47,29 @@ export function Navbar() {
               Home
             </Link>
             <Link
-              href="/courses"
+              href="/sports"
               className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
             >
-              All Facilities
+              Sports
 
             </Link>
             <Link
               href="/add-course"
               className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
             >
-              Add Facility
+              All Sports
+            </Link>
+            <Link
+              href="/add-player"
+              className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
+            >
+             Add Player
             </Link>
             <Link
               href="/dashboard"
               className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
             >
-             My Bookings
-            </Link>
-            <Link
-              href="/dashboard"
-              className="font-medium text-slate-700 hover:text-blue-600 transition-colors"
-            >
-             Manage My Facilities
+             Manage My Sports
             </Link>
           </div>
 
