@@ -15,35 +15,36 @@ import {
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-
+import { redirect } from "next/navigation";
+import { toast } from "react-toastify";
 
 const RegisterPage = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
-    const onSubMit = async (e) => {
-      e.preventDefault();
-  
-      const formdata = new FormData(e.currentTarget);
-      const newdata = Object.fromEntries(formdata.entries());
+    const formdata = new FormData(e.currentTarget);
+    const newdata = Object.fromEntries(formdata.entries());
 
-      // console.log('new data', newdata);
+    const { data, error } = await authClient.signUp.email({
+      name: newdata.name,
+      email: newdata.email,
+      password: newdata.password,
+      image : newdata.image,
+    });
 
+    // console.log(data, error);
 
-      const {data, error} = await authClient.signUp.email({
-        name : newdata.name,
-        Email : newdata.email,
-        Password : newdata.password,
-      })
-
-      console.log(data, error);
-      
-
-
-    
-    
-    };
+    if(data){
+      toast.success("singup successfull complete")
+      redirect('/')
+    }
+    if(error){
+      toast.error("Invalid singup ! please again try.")
+      redirect('/')
+    }
+  };
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050b18] px-4 py-10">
-
       {/* Background Glow */}
       <div className="absolute left-0 top-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl"></div>
       <div className="absolute bottom-0 right-0 h-72 w-72 rounded-full bg-blue-500/20 blur-3xl"></div>
@@ -78,13 +79,11 @@ const RegisterPage = () => {
         transition={{ duration: 0.8 }}
         className="relative z-10 w-full max-w-xl overflow-hidden rounded-[35px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-2xl sm:p-10"
       >
-
         {/* Card Glow */}
         <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10"></div>
 
         {/* Header */}
         <div className="relative z-10 mb-10 text-center">
-
           <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30">
             <Sparkles className="text-white" />
           </div>
@@ -99,11 +98,7 @@ const RegisterPage = () => {
         </div>
 
         {/* Form */}
-        <Form
-          onSubmit={onSubMit}
-          className="relative z-10 flex flex-col gap-7"
-        >
-
+        <Form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-7">
           {/* Name */}
           <TextField
             isRequired
@@ -125,8 +120,7 @@ const RegisterPage = () => {
               classNames={{
                 inputWrapper:
                   "h-14 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500 focus-within:border-cyan-500",
-                input:
-                  "text-white placeholder:text-gray-500",
+                input: "text-white placeholder:text-gray-500",
               }}
             />
 
@@ -139,9 +133,7 @@ const RegisterPage = () => {
             name="email"
             type="email"
             validate={(value) => {
-              if (
-                !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)
-              ) {
+              if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
                 return "Please enter a valid email address";
               }
 
@@ -158,13 +150,25 @@ const RegisterPage = () => {
               classNames={{
                 inputWrapper:
                   "h-14 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500 focus-within:border-cyan-500",
-                input:
-                  "text-white placeholder:text-gray-500",
+                input: "text-white placeholder:text-gray-500",
               }}
             />
 
             <FieldError />
           </TextField>
+
+           {/* Image URL - Removed preview */}
+              <div className="md:col-span-2">
+                <TextField name="image" isRequired>
+                  <Label className="mb-2 text-sm font-semibold text-gray-300">Image URL</Label>
+                  <Input
+                    type="url"
+                    placeholder="https://example.com/bali-paradise.jpg"
+                    className="rounded-2xl"
+                  />
+                  <FieldError />
+                </TextField>
+              </div>
 
           {/* Password */}
           <TextField
@@ -198,8 +202,7 @@ const RegisterPage = () => {
               classNames={{
                 inputWrapper:
                   "h-14 rounded-2xl border border-white/10 bg-white/5 backdrop-blur-xl transition-all duration-300 hover:border-cyan-500 focus-within:border-cyan-500",
-                input:
-                  "text-white placeholder:text-gray-500",
+                input: "text-white placeholder:text-gray-500",
               }}
             />
 
@@ -212,7 +215,6 @@ const RegisterPage = () => {
 
           {/* Buttons */}
           <div className="mt-4 flex flex-col gap-4 sm:flex-row">
-
             {/* Submit */}
             <Button
               type="submit"
@@ -235,11 +237,11 @@ const RegisterPage = () => {
           {/* Bottom Text */}
           <p className="mt-4 text-center text-sm text-gray-400">
             Already have an account?
-           <Link href={'/login'}>
-            <span className="ml-2 cursor-pointer font-semibold text-cyan-400 transition-colors duration-300 hover:text-cyan-300">
-              Login
-            </span>
-           </Link>
+            <Link href={"/login"}>
+              <span className="ml-2 cursor-pointer font-semibold text-cyan-400 transition-colors duration-300 hover:text-cyan-300">
+                Login
+              </span>
+            </Link>
           </p>
         </Form>
       </motion.div>

@@ -1,5 +1,6 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { Lock, ArrowRight } from "@gravity-ui/icons";
 import {
   Button,
@@ -15,6 +16,30 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const LoginPage = () => {
+
+
+    const onSubmit = async (e) => {
+      e.preventDefault();
+  
+      const formdata = new FormData(e.currentTarget);
+      const newdata = Object.fromEntries(formdata.entries());
+  
+      const { data, error } = await authClient.signIn.email({
+        email: newdata.email,
+        password: newdata.password,
+      });
+  
+      // console.log(data, error);
+  
+      if(data){
+        toast.success("Login successfull complete")
+        redirect('/')
+      }
+      if(error){
+        toast.error("Login faild! please again try.")
+        redirect('/')
+      }
+    };
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050b18] px-4 py-10">
       {/* Background Glow */}
@@ -71,7 +96,7 @@ const LoginPage = () => {
         </div>
 
         {/* Form */}
-        <Form className="relative z-10 flex flex-col gap-7" onSubmit={() => {}}>
+        <Form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-7" onSubmit={() => {}}>
           {/* Email */}
           <TextField
             isRequired

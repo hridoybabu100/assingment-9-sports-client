@@ -4,10 +4,16 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { Menu, X, Trophy } from "lucide-react";
 import { useState } from "react";
-import Image from "next/image";
+import { authClient } from "@/lib/auth-client";
+
+import NavbarProfile from "../NavbarProfile/NavbarProfile";
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
+
+  const { data: session, isPending } = authClient.useSession();
+  const users = session;
+  const user = users?.user;
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -32,7 +38,7 @@ const Navbar = () => {
           transition={{ duration: 0.7 }}
         >
           <Link href="/" className="flex items-center gap-3">
-            <div className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 p-3 shadow-lg shadow-cyan-500/30">
+            <div className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 p-3 shadow-lg shadow-cyan-500/30">
               <Trophy className="h-6 w-6 text-white" />
             </div>
 
@@ -81,21 +87,23 @@ const Navbar = () => {
           transition={{ duration: 0.7 }}
           className="hidden items-center gap-4 lg:flex"
         >
-          <Link href={"/login"}>
-            <button className="rounded-2xl border border-cyan-500/30 bg-white/5 px-5 py-3 font-medium text-cyan-400 backdrop-blur-xl transition-all duration-300 hover:bg-cyan-500/10">
-              Login
-            </button>
-          </Link>
+          {user ? (
+            <NavbarProfile></NavbarProfile>
+          ) : (
+            <>
+              <Link href={"/login"}>
+                <button className="rounded-2xl border border-cyan-500/30 bg-white/5 px-5 py-3 font-medium text-cyan-400 backdrop-blur-xl transition-all duration-300 hover:bg-cyan-500/10">
+                  Login
+                </button>
+              </Link>
 
-          <Link href={"/register"}>
-            <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30">
-              Join Now
-            </button>
-          </Link>
-
-         
-
-        
+              <Link href={"/register"}>
+                <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-5 py-3 font-semibold text-white transition-all duration-300 hover:shadow-xl hover:shadow-cyan-500/30">
+                  Join Now
+                </button>
+              </Link>
+            </>
+          )}
         </motion.div>
 
         {/* Mobile Menu Button */}
