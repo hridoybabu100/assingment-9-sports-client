@@ -16,7 +16,7 @@ export async function PurchaseDelete({ player, purchaseId, token }) {
   
 
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:5000/purchase/${purchaseId}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/purchase/${purchaseId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

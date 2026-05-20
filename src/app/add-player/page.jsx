@@ -23,7 +23,7 @@ const AddPlayers = () => {
     const formdata = new FormData(e.currentTarget);
     const newdata = Object.fromEntries(formdata.entries());
 
-    const res = await fetch("http://localhost:5000/sports", {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/sports`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

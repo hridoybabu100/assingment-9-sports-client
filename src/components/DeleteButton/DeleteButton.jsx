@@ -10,7 +10,7 @@ export function DeleteButton({ data }) {
   const { _id } = data;
 
   const handleDelete = async () => {
-    const res = await fetch(`http://localhost:5000/sports/${_id}`, {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/sports/${_id}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",

@@ -35,7 +35,7 @@ const PurchaseButton = ({data, token}) => {
         }
        
 
-        const res = await fetch("http://localhost:5000/purchase", {
+        const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/purchase`, {
             method : "POST",
             headers : {
                 "Content-Type" : "application/json",

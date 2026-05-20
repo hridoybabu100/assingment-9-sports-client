@@ -23,7 +23,7 @@ const PurchaseCard = async () => {
   
 
   const res = await fetch(
-    `http://localhost:5000/purchase/${user?.id}`,{
+    `${process.env.NEXT_PUBLIC_SERVER}/purchase/${user?.id}`,{
       headers :{
         authorization : `Bearer ${token}`
       }

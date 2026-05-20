@@ -1,17 +1,17 @@
 import SportsCard from "@/components/SportCard/SportCard";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
-
+export const dynamic = 'force-dynamic';
 
 const SportsPage = async() => {
 
   
 
-    const res = await fetch("http://localhost:5000/sports"
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/sports`
   
     );
     const sports = await res.json();
-    // console.log("all Sports", sport);
+    
     
     return (
       <div className="bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33]">

@@ -18,7 +18,7 @@ const SportsDetailsPage = async ({ params }) => {
   
 
 
-  const res = await fetch(`http://localhost:5000/sports/${id}`,{
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/sports/${id}`,{
     headers :{
       authorization : `Bearer ${token}`
     }
