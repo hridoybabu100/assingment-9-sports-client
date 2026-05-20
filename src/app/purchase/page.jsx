@@ -40,7 +40,7 @@ const PurchaseCard = async () => {
 
             <h1 className="text-4xl md:text-6xl font-black leading-tight">
               My Purchased
-              <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+              <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 {" "}
                 Players
               </span>
@@ -74,7 +74,7 @@ const PurchaseCard = async () => {
               </div>
 
               <div className="mt-6 h-2 rounded-full bg-slate-800 overflow-hidden">
-                <div className="h-full w-[80%] bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full"></div>
+                <div className="h-full w-[80%] bg-linear-to-r from-cyan-400 to-blue-500 rounded-full"></div>
               </div>
             </div>
           </div>
@@ -82,7 +82,7 @@ const PurchaseCard = async () => {
 
         {/* Player Grid */}
         {players.length > 0 ? (
-          <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 gap-8">
             {players.map((player) => (
               <PurchasePlayerCard
                 key={player._id}
@@ -107,7 +107,7 @@ const PurchaseCard = async () => {
                 players and build your dream squad.
               </p>
 
-              <button className="mt-8 px-8 py-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20">
+              <button className="mt-8 px-8 py-3 rounded-2xl bg-linear-to-r from-cyan-500 to-blue-500 font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20">
                 Explore Players
               </button>
             </div>

@@ -16,30 +16,34 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const LoginPage = () => {
+  const onSubmit = async (e) => {
+    e.preventDefault();
 
+    const formdata = new FormData(e.currentTarget);
+    const newdata = Object.fromEntries(formdata.entries());
 
-    const onSubmit = async (e) => {
-      e.preventDefault();
-  
-      const formdata = new FormData(e.currentTarget);
-      const newdata = Object.fromEntries(formdata.entries());
-  
-      const { data, error } = await authClient.signIn.email({
-        email: newdata.email,
-        password: newdata.password,
-      });
-  
-      // console.log(data, error);
-  
-      if(data){
-        toast.success("Login successfull complete")
-        redirect('/')
-      }
-      if(error){
-        toast.error("Login faild! please again try.")
-        redirect('/')
-      }
-    };
+    const { data, error } = await authClient.signIn.email({
+      email: newdata.email,
+      password: newdata.password,
+    });
+
+    // console.log(data, error);
+
+    if (data) {
+      toast.success("Login successfull complete");
+      redirect("/");
+    }
+    if (error) {
+      toast.error("Login faild! please again try.");
+      redirect("/");
+    }
+  };
+
+  const handleGoogle = async () => {
+     await authClient.signIn.social({
+      provider: "google",
+    });
+  };
   return (
     <div className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#050b18] px-4 py-10">
       {/* Background Glow */}
@@ -96,7 +100,11 @@ const LoginPage = () => {
         </div>
 
         {/* Form */}
-        <Form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-7" onSubmit={() => {}}>
+        <Form
+          onSubmit={onSubmit}
+          className="relative z-10 flex flex-col gap-7"
+          
+        >
           {/* Email */}
           <TextField
             isRequired
@@ -185,14 +193,14 @@ const LoginPage = () => {
             {/* Login Button */}
             <Button
               type="submit"
-              className="group h-14 w-full rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
+              className="group h-14 w-full rounded-2xl bg-linear-to-r from-cyan-500 via-blue-600 to-indigo-600 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
             >
               Login Account
               <ArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </Button>
 
             {/* Google Login */}
-            <Button
+            <Button onClick={handleGoogle}
               variant="secondary"
               className="group h-14 w-full rounded-2xl border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-xl"
             >
@@ -229,11 +237,11 @@ const LoginPage = () => {
           {/* Bottom Text */}
           <p className="mt-4 text-center text-sm text-gray-400">
             Don&apos;t have an account?
-          <Link href={'/register'}>
-            <span className="ml-2 cursor-pointer font-semibold text-cyan-400 transition-colors duration-300 hover:text-cyan-300">
-              Register
-            </span>
-          </Link>
+            <Link href={"/register"}>
+              <span className="ml-2 cursor-pointer font-semibold text-cyan-400 transition-colors duration-300 hover:text-cyan-300">
+                Register
+              </span>
+            </Link>
           </p>
         </Form>
       </motion.div>

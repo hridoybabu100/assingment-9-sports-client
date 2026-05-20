@@ -2,6 +2,8 @@
 import { DeleteButton } from "@/components/DeleteButton/DeleteButton";
 import { EditModal } from "@/components/EditModal/EditModal";
 import PurchaseButton from "@/components/PurchaseButton/PurchaseButton";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
@@ -9,7 +11,18 @@ import { FiEdit, FiTrash2 } from "react-icons/fi";
 const SportsDetailsPage = async ({ params }) => {
   const { id } = await params;
 
-  const res = await fetch(`http://localhost:5000/sports/${id}`);
+  const {token} = await auth.api.getToken({
+    headers : await headers()
+  });
+
+  
+
+
+  const res = await fetch(`http://localhost:5000/sports/${id}`,{
+    headers :{
+      authorization : `Bearer ${token}`
+    }
+  });
 
   const data = await res.json();
 
