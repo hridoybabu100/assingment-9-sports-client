@@ -1,9 +1,15 @@
+"use client" 
+import { authClient } from "@/lib/auth-client";
 import Image from "next/image";
 import { FaTrophy, FaMapMarkerAlt, FaUsers, FaMoneyBill } from "react-icons/fa";
+import { MdCountertops, MdEmail } from "react-icons/md";
 
-export default function ProfilePage({data}) {
+export default function ProfilePage() {
+    const { data: session} = authClient.useSession();
+    const users = session;
+    const user = users?.user;
   return (
-    <div className="min-h-screen bg-gradient-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] px-4 py-10 text-white">
+    <div className="min-h-screen bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] px-4 py-10 text-white">
 
       <div className="mx-auto max-w-5xl">
 
@@ -22,7 +28,7 @@ export default function ProfilePage({data}) {
               {/* Avatar */}
               <div className="relative">
                 <Image
-                  src={data?.image}
+                  src={user?.image}
                   width={200}
                   height={200}
                   alt="profile"
@@ -35,12 +41,12 @@ export default function ProfilePage({data}) {
 
               {/* Name */}
               <h2 className="mt-6 text-3xl font-black tracking-wide">
-                {data?.name}
+                {user?.name}
               </h2>
 
               {/* Role */}
               <p className="mt-1 text-cyan-400 font-medium">
-                Professional {data?.sports} Player
+                Professional {user?.sports} Player
               </p>
 
               {/* Badge */}
@@ -62,16 +68,16 @@ export default function ProfilePage({data}) {
 
                 <div className="flex items-center justify-between rounded-2xl bg-white/5 px-5 py-4">
                   <span className="flex items-center gap-2 text-gray-400">
-                    <FaMapMarkerAlt /> Country
+                    <MdEmail /> E-mail
                   </span>
-                  <span className="font-semibold">{data?.country}</span>
+                  <span className="font-semibold">{user?.email}</span>
                 </div>
 
                 <div className="flex items-center justify-between rounded-2xl bg-white/5 px-5 py-4">
                   <span className="flex items-center gap-2 text-gray-400">
-                    <FaUsers /> Team
+                    <MdCountertops /> Country
                   </span>
-                  <span className="font-semibold">{data?.team}</span>
+                  <span className="font-semibold text-green-500">{user?.team || "N/A"}</span>
                 </div>
 
                 <div className="flex items-center justify-between rounded-2xl bg-white/5 px-5 py-4">
@@ -79,21 +85,21 @@ export default function ProfilePage({data}) {
                     <FaMoneyBill /> Salary
                   </span>
                   <span className="font-bold text-green-400">
-                    {data?.salary || "N/A"}
+                    {user?.salary || "15M"}
                   </span>
                 </div>
               </div>
 
               {/* Description */}
               <div className="rounded-2xl bg-white/5 p-5 text-gray-300 leading-7">
-                {data?.description ||
+                {user?.description ||
                   "This player is one of the top performers in the sports world with outstanding skills and achievements."}
               </div>
 
               {/* Buttons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
 
-                <button className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 py-3 font-semibold transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
+                <button className="w-full rounded-2xl bg-lineart-to-r from-cyan-500 to-blue-600 py-3 font-semibold transition hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
                   Edit Profile
                 </button>
 

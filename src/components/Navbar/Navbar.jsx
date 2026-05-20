@@ -18,8 +18,8 @@ const Navbar = () => {
   const navLinks = [
     { name: "Home", path: "/" },
     { name: "Players", path: "/sports" },
-    { name: "All-Players", path: "/teams" },
     { name: "Add-Players", path: "/add-player" },
+    { name: "Player-Purchase", path: "/purchase" },
     { name: "Profile", path: "/profile" },
     // { name: "Join Now", path: "/register" },
   ];

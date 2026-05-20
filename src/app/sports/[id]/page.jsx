@@ -1,6 +1,7 @@
 
 import { DeleteButton } from "@/components/DeleteButton/DeleteButton";
 import { EditModal } from "@/components/EditModal/EditModal";
+import PurchaseButton from "@/components/PurchaseButton/PurchaseButton";
 import Image from "next/image";
 import Link from "next/link";
 import { FiEdit, FiTrash2 } from "react-icons/fi";
@@ -83,6 +84,8 @@ const SportsDetailsPage = async ({ params }) => {
               </div>
             </div>
 
+              <PurchaseButton data={data}></PurchaseButton>
+
             {/* Buttons */}
             <div className="mt-8 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {/* Go Back */}
@@ -93,9 +96,11 @@ const SportsDetailsPage = async ({ params }) => {
            </Link>
 
               {/* View Profile */}
+             <Link href={'/profile'}>
               <button className="rounded-2xl border border-cyan-500 bg-white px-6 py-4 font-semibold text-cyan-600 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-50 hover:shadow-lg">
-                View Profile
+              View Profile
               </button>
+              </Link>
 
               {/* Edit Button */}
               <EditModal data={data}></EditModal>

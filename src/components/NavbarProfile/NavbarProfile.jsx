@@ -21,7 +21,7 @@ const NavbarProfile = () => {
   const { data: session, isPending } = authClient.useSession();
   const users = session;
   const user = users?.user;
-   console.log('session', user);
+//    console.log('session', user);
 
   const handleOut = async () => {
     await authClient.signOut();
