@@ -12,6 +12,9 @@ yarn dev
 pnpm dev
 # or
 bun dev
+
+"https://sports-webcode.vercel.app"
+"https://assingment-9-sports-server.vercel.app"
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.

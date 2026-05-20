@@ -21,7 +21,7 @@ const PurchasePlayerCard = ({player, token}) => {
         animate={{ opacity: 1, y: 0, scale: 1 }}
         transition={{ duration: 0.7 }}
         whileHover={{ y: -10 }}
-        className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-gradient-to-br from-[#111827] via-[#1e293b] to-[#0f172a] shadow-2xl border border-white/10"
+        className="relative w-full max-w-5xl overflow-hidden rounded-3xl bg-linear-to-br from-[#111827] via-[#1e293b] to-[#0f172a] shadow-2xl border border-white/10"
       >
         {/* Glow Effects */}
         <div className="absolute -top-20 -right-20 h-60 w-60 bg-cyan-500/20 blur-3xl rounded-full"></div>

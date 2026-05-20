@@ -3,6 +3,7 @@ import Link from "next/link";
 
 export default function SportsCard({ spot, player }) {
   const { name, _id, country, sports, image, team } = spot;
+  // const { name, _id, country, sports, image, team } = extra;
 
   return (
     <div className="w-full font-sans bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33]">

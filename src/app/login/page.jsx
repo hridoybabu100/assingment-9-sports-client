@@ -14,8 +14,11 @@ import {
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
+  const router = useRouter()
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -31,11 +34,11 @@ const LoginPage = () => {
 
     if (data) {
       toast.success("Login successfull complete");
-      redirect("/");
+      router.push("/")
     }
     if (error) {
       toast.error("Login faild! please again try.");
-      redirect("/");
+      router.push("/");
     }
   };
 
