@@ -6,12 +6,14 @@ import { ShoppingCart, Sparkles } from "lucide-react";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
-const PurchaseButton = ({data}) => {
+const PurchaseButton = ({data, token}) => {
 
      const { data: session } = authClient.useSession();
       const users = session;
       const user = users?.user;
       // console.log(user);
+
+      
       
 
     const purchaseHandle = async() => {
@@ -31,16 +33,18 @@ const PurchaseButton = ({data}) => {
             playername : data.name
              
         }
+       
 
         const res = await fetch("http://localhost:5000/purchase", {
             method : "POST",
             headers : {
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                authorization : `Bearer ${token}`
             },
             body : JSON.stringify(newData)
         })
         const purchaseData = await res.json();
-        console.log("New Data", purchaseData);
+        // console.log("New Data", purchaseData);
         
         if(purchaseData){
             toast.success(`${data.name} is added. check the purchase list.`);

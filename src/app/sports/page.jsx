@@ -1,9 +1,15 @@
 import SportsCard from "@/components/SportCard/SportCard";
+import { auth } from "@/lib/auth";
+import { headers } from "next/headers";
 
 
 const SportsPage = async() => {
 
-    const res = await fetch("http://localhost:5000/sports");
+  
+
+    const res = await fetch("http://localhost:5000/sports"
+  
+    );
     const sports = await res.json();
     // console.log("all Sports", sport);
     

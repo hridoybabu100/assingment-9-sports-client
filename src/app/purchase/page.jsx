@@ -3,6 +3,7 @@
 import PurchasePlayerCard from "@/components/PurchasePlayerCard/PurchasePlayerCard";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
+import Link from "next/link";
 import { FaShoppingCart } from "react-icons/fa";
 
 const PurchaseCard = async () => {
@@ -12,12 +13,21 @@ const PurchaseCard = async () => {
 
   const user = session?.user;
 
+
+  // console.log(token);
+
+   const {token} = await auth.api.getToken({
+      headers : await headers()
+    });
+  // console.log(token);
+  
+
   const res = await fetch(
-    `http://localhost:5000/purchase/${user?.id}`,
-    {
-      cache: "no-store",
-    }
-  );
+    `http://localhost:5000/purchase/${user?.id}`,{
+      headers :{
+        authorization : `Bearer ${token}`
+      }
+    } );
 
   const players = await res.json();
 
@@ -29,10 +39,8 @@ const PurchaseCard = async () => {
 
       {/* Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 md:px-8 py-14">
-        
         {/* Header */}
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6 mb-14">
-          
           <div>
             <p className="uppercase tracking-[5px] text-cyan-400 text-sm mb-3">
               Purchase Collection
@@ -56,16 +64,13 @@ const PurchaseCard = async () => {
           {/* Stats Card */}
           <div className="w-full lg:w-[320px]">
             <div className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 shadow-2xl">
-              
               <div className="flex items-center gap-4">
                 <div className="h-16 w-16 rounded-2xl bg-cyan-500/20 flex items-center justify-center">
                   <FaShoppingCart className="text-cyan-400 text-2xl" />
                 </div>
 
                 <div>
-                  <p className="text-gray-400 text-sm">
-                    Total Purchases
-                  </p>
+                  <p className="text-gray-400 text-sm">Total Purchases</p>
 
                   <h2 className="text-4xl font-black text-white">
                     {players.length}
@@ -84,32 +89,27 @@ const PurchaseCard = async () => {
         {players.length > 0 ? (
           <div className="grid grid-cols-1 gap-8">
             {players.map((player) => (
-              <PurchasePlayerCard
-                key={player._id}
-                player={player}
-              />
+              <PurchasePlayerCard key={player._id} player={player} token={token} />
             ))}
           </div>
         ) : (
           <div className="flex items-center justify-center py-32">
             <div className="max-w-lg w-full text-center backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-10">
-              
               <div className="h-24 w-24 mx-auto rounded-full bg-cyan-500/10 flex items-center justify-center mb-6">
                 <FaShoppingCart className="text-5xl text-cyan-400" />
               </div>
 
-              <h2 className="text-3xl font-black mb-4">
-                No Purchases Found
-              </h2>
+              <h2 className="text-3xl font-black mb-4">No Purchases Found</h2>
 
               <p className="text-gray-400 leading-relaxed">
                 You have not purchased any players yet. Explore premium football
                 players and build your dream squad.
               </p>
 
+            <Link href={'/sports'}>
               <button className="mt-8 px-8 py-3 rounded-2xl bg-linear-to-r from-cyan-500 to-blue-500 font-semibold hover:scale-105 transition-all duration-300 shadow-lg shadow-cyan-500/20">
                 Explore Players
-              </button>
+              </button></Link>
             </div>
           </div>
         )}

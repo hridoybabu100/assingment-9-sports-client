@@ -1,18 +1,26 @@
 "use client";
 
+import { authClient } from "@/lib/auth-client";
 import { TriangleExclamation } from "@gravity-ui/icons";
 import { AlertDialog, Button } from "@heroui/react";
 import { redirect } from "next/navigation";
 import { toast } from "react-toastify";
 
-export function PurchaseDelete({ player, purchaseId }) {
-  //   console.log(purchaseId);
+export async function PurchaseDelete({ player, purchaseId, token }) {
+    // console.log(purchaseId);
+    // console.log(player);
+    // console.log(token);
+    
+    
+
+  
 
   const handleDelete = async () => {
     const res = await fetch(`http://localhost:5000/purchase/${purchaseId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        authorization : `Bearer ${token}`
       },
     });
 

@@ -11,26 +11,8 @@ import {
 } from "react-icons/fa";
 import { PurchaseDelete } from "../PurchaseDelete/PurchaseDelete";
 
-const PurchasePlayerCard = ({player}) => {
-//   const player = {
-//     _id: "6a0d4b459eb7a0d33be10bc2",
-//     username: "Khuka Babu",
-//     email: "khuka100@gmail.com",
-//     userimage:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcShgx1kh0CTN4jVRmBRG5w1xUuaiQVzJcFAKA&s",
-//     country: "England",
-//     team: "The La Liga",
-//     salary: "300000",
-//     description:
-//       "Theo lina the best player in England. He is one of the most popular players in England.",
-//     imageUrl:
-//       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ5Elvhsn8WTW_GconSz4JrZPRBM9TAZBFo_g&s",
-//     sports: "Football",
-//   };
+const PurchasePlayerCard = ({player, token}) => {
 
-  // Change Status Here
-//   const status = "Approved";
-//   const status = "Pending";
 
   return (
     <div className="min-h-screen bg-[#0f172a] flex items-center justify-center p-4 md:p-8">
@@ -116,7 +98,7 @@ const PurchasePlayerCard = ({player}) => {
             <motion.div
               animate={{
                 boxShadow:
-                  status === "Approved"
+                  player.status === "Approved"
                     ? [
                         "0px 0px 10px rgba(34,197,94,0.2)",
                         "0px 0px 25px rgba(34,197,94,0.6)",
@@ -172,7 +154,7 @@ const PurchasePlayerCard = ({player}) => {
                 }}
                 className="px-8 py-3 rounded-xl bg-cyan-500 text-white font-semibold shadow-lg"
               >
-                Purchase Now
+                Approve
               </motion.button>
 
               {/* Cancel Purchase */}
@@ -185,7 +167,7 @@ const PurchasePlayerCard = ({player}) => {
                 }}
                 className="px-8 py-3 rounded-xl border border-red-400 text-red-300 font-semibold backdrop-blur-md transition-all duration-300"
               >
-                <PurchaseDelete player={player} purchaseId={player._id}></PurchaseDelete>
+                <PurchaseDelete player={player} purchaseId={player._id} token={token}></PurchaseDelete>
               </motion.button>
             </div>
           </motion.div>
