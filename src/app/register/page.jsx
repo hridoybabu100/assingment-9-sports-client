@@ -115,7 +115,7 @@ const RegisterPage = () => {
             </Label>
 
             <Input
-              placeholder="John Doe"
+              placeholder="Enter your name"
               className="rounded-2xl"
               classNames={{
                 inputWrapper:
@@ -145,7 +145,7 @@ const RegisterPage = () => {
             </Label>
 
             <Input
-              placeholder="john@example.com"
+              placeholder="Enter Your e-mail"
               className="rounded-2xl"
               classNames={{
                 inputWrapper:

@@ -2,8 +2,35 @@
 
 import SportsCard from "@/components/SportCard/SportCard";
 import { motion } from "framer-motion";
+import { useMemo, useState } from "react";
 
 const SportsClient = ({ sports }) => {
+
+  // Search State
+  const [search, setSearch] = useState("");
+
+  // Filter State
+  const [category, setCategory] = useState("All");
+
+  // Smart Search + Filter
+  const filteredSports = useMemo(() => {
+    return sports.filter((item) => {
+
+      const searchText = search.toLowerCase();
+
+      const matchesSearch =
+        item.name?.toLowerCase().includes(searchText) ||
+        item.team?.toLowerCase().includes(searchText) ||
+        item.country?.toLowerCase().includes(searchText) ||
+        item.sports?.toLowerCase().includes(searchText);
+
+      const matchesCategory =
+        category === "All" || item.sports === category;
+
+      return matchesSearch && matchesCategory;
+    });
+  }, [sports, search, category]);
+
   return (
     <div className="min-h-screen py-16 px-4 md:px-8 lg:px-12 bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] text-white">
 
@@ -28,7 +55,7 @@ const SportsClient = ({ sports }) => {
         {/* Stats */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-12">
           {[
-            { label: "Players", value: sports.length },
+            { label: "Players", value: filteredSports.length },
             { label: "Teams", value: "20+" },
             { label: "Countries", value: "15+" },
             { label: "Level", value: "Pro" },
@@ -46,30 +73,69 @@ const SportsClient = ({ sports }) => {
           ))}
         </div>
 
-        {/* Search Bar */}
+        {/* Smart Search Bar */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4 mb-12">
-          <input
-            type="text"
-            placeholder="Search players..."
-            className="w-full md:w-100 px-5 py-3 rounded-xl bg-white/10 border border-white/10 text-white outline-none focus:border-cyan-400"
-          />
 
+          {/* Search Input */}
+          <div className="relative w-full md:w-105 group">
+
+            <input
+              type="text"
+              placeholder="Search player, team, country..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+              className="w-full pl-14 pr-5 py-4 rounded-2xl bg-white/10 border border-white/10 text-white placeholder:text-gray-400 outline-none focus:border-cyan-400 focus:ring-4 focus:ring-cyan-400/20 transition-all duration-300 backdrop-blur-xl"
+            />
+
+            {/* Search Icon */}
+            <div className="absolute left-5 top-1/2 -translate-y-1/2 text-cyan-400 text-lg">
+              🔍
+            </div>
+
+            {/* Glow Effect */}
+            <div className="absolute inset-0 rounded-2xl bg-cyan-500/10 blur-xl opacity-0 group-focus-within:opacity-100 duration-500 -z-10"></div>
+          </div>
+
+          {/* Filter Buttons */}
           <div className="flex gap-3 flex-wrap">
-            <button className="px-5 py-2 rounded-xl bg-cyan-500 hover:bg-cyan-600 transition">
-              All
-            </button>
-            <button className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition">
-              Football
-            </button>
-            <button className="px-5 py-2 rounded-xl bg-white/10 hover:bg-white/20 transition">
-              Cricket
-            </button>
+
+            {["All", "Football", "Cricket", "Basketball"].map((item) => (
+
+              <button
+                key={item}
+                onClick={() => setCategory(item)}
+                className={`px-5 py-2 rounded-xl transition duration-300 ${
+                  category === item
+                    ? "bg-cyan-500 text-white shadow-lg shadow-cyan-500/30"
+                    : "bg-white/10 hover:bg-white/20 text-white"
+                }`}
+              >
+                {item}
+              </button>
+
+            ))}
+
           </div>
         </div>
 
+        {/* No Data Found */}
+        {filteredSports.length === 0 && (
+          <div className="text-center py-20">
+            <h2 className="text-3xl font-bold text-white">
+              No Player Found 😢
+            </h2>
+
+            <p className="text-gray-400 mt-4">
+              Try searching another keyword
+            </p>
+          </div>
+        )}
+
         {/* Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
-          {sports.map((spot, index) => (
+
+          {filteredSports.map((spot, index) => (
+
             <motion.div
               key={spot._id}
               initial={{ opacity: 0, y: 50 }}
@@ -80,7 +146,9 @@ const SportsClient = ({ sports }) => {
             >
               <SportsCard spot={spot} />
             </motion.div>
+
           ))}
+
         </div>
 
         {/* Extra Feature Section */}
@@ -110,12 +178,14 @@ const SportsClient = ({ sports }) => {
 
             {/* Right Stats */}
             <div className="grid grid-cols-2 gap-5">
+
               {[
                 { label: "Speed", value: "Fast", color: "text-cyan-400" },
                 { label: "UI", value: "Modern", color: "text-pink-400" },
                 { label: "Performance", value: "99%", color: "text-yellow-400" },
                 { label: "Support", value: "24/7", color: "text-green-400" },
               ].map((item, i) => (
+
                 <div
                   key={i}
                   className="bg-[#0c1a30] p-6 rounded-2xl text-center hover:scale-105 transition"
@@ -123,9 +193,14 @@ const SportsClient = ({ sports }) => {
                   <h3 className={`text-2xl font-bold ${item.color}`}>
                     {item.value}
                   </h3>
-                  <p className="text-gray-300 mt-2">{item.label}</p>
+
+                  <p className="text-gray-300 mt-2">
+                    {item.label}
+                  </p>
                 </div>
+
               ))}
+
             </div>
 
           </div>

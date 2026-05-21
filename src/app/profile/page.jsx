@@ -8,6 +8,9 @@ export default function ProfilePage() {
     const { data: session} = authClient.useSession();
     const users = session;
     const user = users?.user;
+
+    // console.log('user data', user);
+    
   return (
     <div className="min-h-screen bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] px-4 py-10 text-white">
 

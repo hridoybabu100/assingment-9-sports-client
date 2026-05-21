@@ -18,7 +18,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
 const LoginPage = () => {
-  const router = useRouter()
+  const router = useRouter();
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -34,7 +34,7 @@ const LoginPage = () => {
 
     if (data) {
       toast.success("Login successfull complete");
-      router.push("/")
+      router.push("/");
     }
     if (error) {
       toast.error("Login faild! please again try.");
@@ -43,7 +43,7 @@ const LoginPage = () => {
   };
 
   const handleGoogle = async () => {
-     await authClient.signIn.social({
+    await authClient.signIn.social({
       provider: "google",
     });
   };
@@ -103,11 +103,7 @@ const LoginPage = () => {
         </div>
 
         {/* Form */}
-        <Form
-          onSubmit={onSubmit}
-          className="relative z-10 flex flex-col gap-7"
-          
-        >
+        <Form onSubmit={onSubmit} className="relative z-10 flex flex-col gap-7">
           {/* Email */}
           <TextField
             isRequired
@@ -126,7 +122,7 @@ const LoginPage = () => {
             </Label>
 
             <Input
-              placeholder="john@example.com"
+              placeholder="Enter your email"
               className="rounded-2xl"
               classNames={{
                 inputWrapper:
@@ -139,6 +135,7 @@ const LoginPage = () => {
           </TextField>
 
           {/* Password */}
+
           <TextField
             isRequired
             minLength={8}
@@ -203,7 +200,8 @@ const LoginPage = () => {
             </Button>
 
             {/* Google Login */}
-            <Button onClick={handleGoogle}
+            <Button
+              onClick={handleGoogle}
               variant="secondary"
               className="group h-14 w-full rounded-2xl border border-white/10 bg-white/5 text-white transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-xl"
             >

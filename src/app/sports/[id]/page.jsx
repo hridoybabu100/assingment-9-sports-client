@@ -6,7 +6,7 @@ import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import Image from "next/image";
 import Link from "next/link";
-import { FiEdit, FiTrash2 } from "react-icons/fi";
+
 
 const SportsDetailsPage = async ({ params }) => {
   const { id } = await params;

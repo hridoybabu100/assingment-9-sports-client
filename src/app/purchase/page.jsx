@@ -1,4 +1,4 @@
-// app/purchase/page.jsx
+
 
 import PurchasePlayerCard from "@/components/PurchasePlayerCard/PurchasePlayerCard";
 import { auth } from "@/lib/auth";
@@ -12,6 +12,8 @@ const PurchaseCard = async () => {
   });
 
   const user = session?.user;
+  // console.log('user', user);
+  
 
 
   // console.log(token);

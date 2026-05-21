@@ -11,10 +11,7 @@ const PurchaseButton = ({data, token}) => {
      const { data: session } = authClient.useSession();
       const users = session;
       const user = users?.user;
-      // console.log(user);
-
-      
-      
+      // console.log(user); 
 
     const purchaseHandle = async() => {
         const newData = {
