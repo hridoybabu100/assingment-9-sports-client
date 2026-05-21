@@ -1,41 +1,169 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+**✅ Modern & Professional README.md**
 
-## Getting Started
+```markdown
+# Sportify – Modern Sports Management Platform
 
-First, run the development server:
+![Sportify Banner](https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop)
+
+A **premium sports management platform** built with cutting-edge technologies, stunning animations, and a sleek dark cyber-sport aesthetic.
+
+**Live Demo:** [https://sports-webcode.vercel.app](https://sports-webcode.vercel.app)  
+**Backend API:** [https://assingment-9-sports-server.vercel.app](https://assingment-9-sports-server.vercel.app)
+
+---
+
+## ✨ Highlights
+
+- **Next-Gen UI** with glassmorphism, heavy blur effects, and smooth animations
+- **Full Authentication** using **Better Auth** + MongoDB
+- **Player Marketplace** – Browse, view details, and purchase players
+- **Protected Routes** with JWT verification
+- **Modern Tech Stack** – Next.js 16 (App Router) + React 19 + Tailwind v4
+- Fully responsive with premium micro-interactions
+
+---
+
+## 🛠 Tech Stack
+
+| Frontend          | Backend          |
+|-------------------|------------------|
+| Next.js 16        | Express.js       |
+| React 19          | MongoDB Atlas    |
+| Tailwind CSS v4   | Better Auth      |
+| Framer Motion     | JWT (jose)       |
+| HeroUI            | CORS             |
+| Lucide Icons      | Vercel Serverless|
+
+---
+
+## 🚀 Getting Started
+
+### 1. Clone the Project
+
+```bash
+git clone https://github.com/hridoyakanda/assingment-9-sports-client.git
+cd assingment-9-sports-client
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Environment Variables
+
+Create `.env.local`:
+
+```env
+NEXT_PUBLIC_SERVER=https://assingment-9-sports-server.vercel.app
+BETTER_AUTH_URL=http://localhost:3000
+```
+
+### 4. Run Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-
-"https://sports-webcode.vercel.app"
-"https://assingment-9-sports-server.vercel.app"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📌 Key Features
 
-## Learn More
+### 🏠 Home Page
+- Eye-catching hero with animated stats
+- Feature highlights with glowing cards
+- Live project showcases
+- Rating & testimonials section
 
-To learn more about Next.js, take a look at the following resources:
+### 👥 Players
+- Dynamic grid of professional players
+- Search & filter functionality
+- Detailed player profiles with purchase option
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 🛒 Purchase System
+- Secure player purchasing
+- Personal purchase history
+- Cancel purchase with confirmation dialog
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🔐 Authentication
+- Email/Password + Google OAuth
+- Protected routes (`/add-player`, `/purchase`, `/profile`)
+- Persistent JWT sessions
 
-## Deploy on Vercel
+### 🎨 Design
+- Dark theme with vibrant cyan/blue gradients
+- Smooth hover animations & floating elements
+- Glassmorphic cards with backdrop blur
+- Responsive across all devices
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details
+## 📁 Project Structure
 
+```bash
+src/
+├── app/                     # App Router Pages
+├── components/              # Reusable Components
+│   ├── Hero/
+│   ├── Navbar/
+│   ├── SportCard/
+│   ├── PurchasePlayerCard/
+│   ├── Footer/
+│   └── ...
+├── lib/
+│   ├── auth.js
+│   └── auth-client.js
+└── proxy.js                 # Middleware protection
+```
 
+---
+
+## 🔑 Protected Routes
+
+- `/add-player`
+- `/purchase`
+- `/profile`
+- `/sports/:id` (with token)
+
+---
+
+## 📦 Scripts
+
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run start    # Start production server
+```
+
+---
+
+## 🧑‍💻 Author
+
+**Hridoy Akanda**  
+*Assignment 9 – Sports Management System*
+
+---
+
+## 📄 License
+
+This project is developed for educational purposes.
+
+---
+
+**Built with passion for modern web experiences & sports technology.**
+
+⭐ Star this repo if you like it!
+
+---
+
+*Made with ❤️ using Next.js 16, Framer Motion & Better Auth*
+```
+
+---
+
+This is a **clean, modern, and professional** README that highlights your project’s strengths. It’s ready to be used on GitHub or Vercel.
+
+Would you like me to also update the **server-side README** or create a **combined repository README**?
