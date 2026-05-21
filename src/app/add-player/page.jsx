@@ -169,7 +169,7 @@ const AddPlayers = () => {
                {/* Description */}
               <div className="md:col-span-2">
                 <TextField name="description" isRequired>
-                  <Label>Description</Label>
+                  <Label className="text-gray-300 font-medium">Description</Label>
                   <TextArea
                     placeholder="Describe the player..."
                     className="rounded-2xl bg-white/5 border border-white/10 text-white placeholder:text-gray-500 focus:border-cyan-500"
