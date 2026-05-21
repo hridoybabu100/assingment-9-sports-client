@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const SportsClient = ({ sports }) => {
   return (
-    <div className="min-h-screen py-16 px-4 md:px-8 lg:px-12 bg-gradient-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] text-white">
+    <div className="min-h-screen py-16 px-4 md:px-8 lg:px-12 bg-linear-to-br from-[#050b18] via-[#07111f] to-[#0b1a33] text-white">
 
       <div className="max-w-7xl mx-auto">
 
@@ -51,7 +51,7 @@ const SportsClient = ({ sports }) => {
           <input
             type="text"
             placeholder="Search players..."
-            className="w-full md:w-[400px] px-5 py-3 rounded-xl bg-white/10 border border-white/10 text-white outline-none focus:border-cyan-400"
+            className="w-full md:w-100 px-5 py-3 rounded-xl bg-white/10 border border-white/10 text-white outline-none focus:border-cyan-400"
           />
 
           <div className="flex gap-3 flex-wrap">

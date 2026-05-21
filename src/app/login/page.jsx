@@ -85,11 +85,11 @@ const LoginPage = () => {
         className="relative z-10 w-full max-w-lg overflow-hidden rounded-[35px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-2xl sm:p-10"
       >
         {/* Card Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-cyan-500/10 via-transparent to-blue-500/10"></div>
 
         {/* Header */}
         <div className="relative z-10 mb-10 text-center">
-          <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30">
+          <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-linear-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30">
             <Lock className="text-white" />
           </div>
 

@@ -80,11 +80,11 @@ const RegisterPage = () => {
         className="relative z-10 w-full max-w-xl overflow-hidden rounded-[35px] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur-2xl sm:p-10"
       >
         {/* Card Glow */}
-        <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10"></div>
+        <div className="absolute inset-0 bg-linear-to-br from-cyan-500/10 via-transparent to-blue-500/10"></div>
 
         {/* Header */}
         <div className="relative z-10 mb-10 text-center">
-          <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30">
+          <div className="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-3xl bg-linear-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/30">
             <Sparkles className="text-white" />
           </div>
 
@@ -218,7 +218,7 @@ const RegisterPage = () => {
             {/* Submit */}
             <Button
               type="submit"
-              className="group h-14 w-full rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
+              className="group h-14 w-full rounded-2xl bg-linear-to-r from-cyan-500 via-blue-600 to-indigo-600 font-bold text-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-cyan-500/30"
             >
               <Check className="transition-transform duration-300 group-hover:rotate-12" />
               Create Account

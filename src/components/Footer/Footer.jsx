@@ -23,7 +23,7 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <div className="mb-5 flex items-center gap-3">
-              <div className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 p-3">
+              <div className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 p-3">
                 <FaBasketballBall className="text-2xl text-white" />
               </div>
 
@@ -146,7 +146,7 @@ const Footer = () => {
                 className="w-full rounded-2xl border border-white/10 bg-white/5 px-5 py-4 text-white outline-none backdrop-blur-xl placeholder:text-gray-500 focus:border-cyan-500"
               />
 
-              <button className="w-full rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-5 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/30">
+              <button className="w-full rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-5 py-4 font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-cyan-500/30">
                 Subscribe Now
               </button>
             </div>

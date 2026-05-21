@@ -91,7 +91,7 @@ const StarSection = () => {
               >
 
                 {/* Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-blue-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
                 {/* Icon */}
                 <motion.div

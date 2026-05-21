@@ -110,7 +110,7 @@ const SportsDetailsPage = async ({ params }) => {
 
               {/* View Profile */}
              <Link href={'/profile'}>
-              <button className="rounded-2xl border border-cyan-500 bg-white px-6 py-4 font-semibold text-cyan-600 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-50 hover:shadow-lg">
+              <button className="rounded-2xl w-full h-full border border-cyan-500 bg-white px-6 py-4 font-semibold text-cyan-600 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-50 hover:shadow-lg">
               View Profile
               </button>
               </Link>

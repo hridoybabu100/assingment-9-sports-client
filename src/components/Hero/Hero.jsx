@@ -30,7 +30,7 @@ const Hero = () => {
           {/* Heading */}
           <h1 className="mb-6 text-5xl font-black leading-tight sm:text-6xl lg:text-7xl">
             Feel The Power <br />
-            Of <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            Of <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               Sports
             </span>
           </h1>
@@ -45,7 +45,7 @@ const Hero = () => {
           {/* Buttons */}
           <div className="flex flex-col gap-4 sm:flex-row">
             
-            <button className="rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/40">
+            <button className="rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-8 py-4 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/40">
               Explore Players
             </button>
 
@@ -92,7 +92,7 @@ const Hero = () => {
             />
 
             {/* Floating Card */}
-            <div className="absolute -bottom-8 left-1/2 flex w-[260px] -translate-x-1/2 items-center gap-4 rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur-xl">
+            <div className="absolute -bottom-8 left-1/2 flex w-65 -translate-x-1/2 items-center gap-4 rounded-3xl border border-white/10 bg-white/10 p-4 backdrop-blur-xl">
               
               <div className="rounded-2xl bg-cyan-500 p-4">
                 <FaTrophy className="text-2xl text-white" />

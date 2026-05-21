@@ -65,7 +65,7 @@ export default function SportsProjectsSection() {
 
           <h2 className="text-4xl font-black leading-tight sm:text-5xl">
             Explore Our Modern
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               {" "}
               Sports Platforms
             </span>
@@ -95,7 +95,7 @@ export default function SportsProjectsSection() {
             >
 
               {/* Glow */}
-              <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+              <div className="absolute inset-0 bg-linear-to-br from-cyan-500/10 via-transparent to-blue-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
               {/* Image */}
               <div className="relative h-64 overflow-hidden">
@@ -107,7 +107,7 @@ export default function SportsProjectsSection() {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#050b18] via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-[#050b18] via-black/20 to-transparent"></div>
 
                 {/* Category */}
                 <div className="absolute left-5 top-5">
@@ -163,7 +163,7 @@ export default function SportsProjectsSection() {
                 </div>
 
                 {/* Button */}
-                <button className="mt-8 w-full rounded-2xl bg-gradient-to-r from-cyan-500 via-blue-600 to-indigo-600 py-4 font-semibold tracking-wide text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
+                <button className="mt-8 w-full rounded-2xl bg-linear-to-r from-cyan-500 via-blue-600 to-indigo-600 py-4 font-semibold tracking-wide text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
                   View Project
                 </button>
               </div>

@@ -60,7 +60,7 @@ const SportsFeatureSection = () => {
 
           <h2 className="mb-6 text-4xl font-black leading-tight sm:text-5xl">
             The Ultimate Modern
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               {" "}
               Sports Experience
             </span>
@@ -89,12 +89,12 @@ const SportsFeatureSection = () => {
                 className="group relative overflow-hidden rounded-[30px] border border-white/10 bg-white/5 p-8 backdrop-blur-2xl transition-all duration-500 hover:-translate-y-3 hover:border-cyan-500/30 hover:shadow-2xl hover:shadow-cyan-500/10"
               >
                 {/* Hover Glow */}
-                <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 opacity-0 transition duration-500 group-hover:opacity-100"></div>
+                <div className="absolute inset-0 bg-linear-to-br from-cyan-500/10 to-blue-500/10 opacity-0 transition duration-500 group-hover:opacity-100"></div>
 
                 <div className="relative z-10">
                   
                   {/* Icon */}
-                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-gradient-to-r from-cyan-500 to-blue-600 shadow-xl shadow-cyan-500/20">
+                  <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-3xl bg-linear-to-r from-cyan-500 to-blue-600 shadow-xl shadow-cyan-500/20">
                     <Icon className="h-10 w-10 text-white" />
                   </div>
 
@@ -125,7 +125,7 @@ const SportsFeatureSection = () => {
               viewport={{ once: true }}
               className="rounded-[30px] border border-white/10 bg-white/5 p-8 text-center backdrop-blur-2xl transition-all duration-500 hover:-translate-y-2 hover:border-cyan-500/20 hover:shadow-2xl hover:shadow-cyan-500/10"
             >
-              <h2 className="mb-3 bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-4xl font-black text-transparent">
+              <h2 className="mb-3 bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-4xl font-black text-transparent">
                 {item.number}
               </h2>
 
@@ -142,7 +142,7 @@ const SportsFeatureSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.9 }}
           viewport={{ once: true }}
-          className="relative mt-28 overflow-hidden rounded-[40px] border border-cyan-500/20 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 p-10 backdrop-blur-3xl lg:p-16"
+          className="relative mt-28 overflow-hidden rounded-[40px] border border-cyan-500/20 bg-linear-to-r from-cyan-500/10 to-blue-500/10 p-10 backdrop-blur-3xl lg:p-16"
         >
           
           <div className="absolute right-0 top-0 h-60 w-60 rounded-full bg-cyan-500/10 blur-3xl"></div>
@@ -153,7 +153,7 @@ const SportsFeatureSection = () => {
             <div className="max-w-2xl">
               <h2 className="mb-5 text-4xl font-black leading-tight">
                 Ready To Explore The
-                <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+                <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                   {" "}
                   Future Of Sports?
                 </span>
@@ -166,7 +166,7 @@ const SportsFeatureSection = () => {
             </div>
 
             {/* Button */}
-            <button className="flex items-center gap-3 rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 px-8 py-5 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
+            <button className="flex items-center gap-3 rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 px-8 py-5 text-lg font-semibold text-white transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-cyan-500/30">
               <PlayCircle className="h-6 w-6" />
               Get Started
             </button>

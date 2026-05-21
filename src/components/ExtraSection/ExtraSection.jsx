@@ -61,7 +61,7 @@ export default function ExtraSportsSection() {
 
           <h2 className="text-4xl font-black leading-tight sm:text-5xl">
             Build The Future Of
-            <span className="bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
               {" "}
               Sports Technology
             </span>
@@ -97,12 +97,12 @@ export default function ExtraSportsSection() {
                 >
 
                   {/* Glow */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-cyan-500/10 to-blue-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
+                  <div className="absolute inset-0 bg-linear-to-r from-cyan-500/10 to-blue-500/10 opacity-0 transition-opacity duration-500 group-hover:opacity-100"></div>
 
                   <div className="relative z-10 flex gap-5">
 
                     {/* Icon */}
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/20">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-linear-to-r from-cyan-500 to-blue-600 shadow-lg shadow-cyan-500/20">
                       <Icon className="h-8 w-8 text-white" />
                     </div>
 

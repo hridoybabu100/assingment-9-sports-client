@@ -75,7 +75,7 @@ const Navbar = () => {
               </Link>
 
               {/* Animated Underline */}
-              <span className="absolute -bottom-2 left-0 h-[2px] w-0 bg-gradient-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
+              <span className="absolute -bottom-2 left-0 h-0.5 w-0 bg-linear-to-r from-cyan-400 to-blue-500 transition-all duration-300 group-hover:w-full"></span>
             </motion.div>
           ))}
         </motion.nav>
