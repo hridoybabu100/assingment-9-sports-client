@@ -36,8 +36,7 @@ const ExtraData = () => {
         player.country?.toLowerCase().includes(search.toLowerCase()) ||
         player.sports?.toLowerCase().includes(search.toLowerCase());
 
-      const matchesCategory =
-        category === "All" || player.sports === category;
+      const matchesCategory = category === "All" || player.sports === category;
 
       return matchesSearch && matchesCategory;
     });
@@ -78,9 +77,7 @@ const ExtraData = () => {
             <h2 className="text-2xl sm:text-3xl font-bold text-cyan-400">
               {filteredPlayers.length}+
             </h2>
-            <p className="text-gray-300 mt-2 text-sm sm:text-base">
-              Players
-            </p>
+            <p className="text-gray-300 mt-2 text-sm sm:text-base">Players</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-5 sm:p-6 text-center hover:scale-105 duration-300">
@@ -94,9 +91,7 @@ const ExtraData = () => {
             <h2 className="text-2xl sm:text-3xl font-bold text-yellow-400">
               20+
             </h2>
-            <p className="text-gray-300 mt-2 text-sm sm:text-base">
-              Countries
-            </p>
+            <p className="text-gray-300 mt-2 text-sm sm:text-base">Countries</p>
           </div>
 
           <div className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-2xl p-5 sm:p-6 text-center hover:scale-105 duration-300">
